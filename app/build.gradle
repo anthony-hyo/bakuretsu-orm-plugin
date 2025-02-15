@@ -1,0 +1,39 @@
+plugins {
+    id 'org.jetbrains.intellij.platform' version '2.2.1'
+    //id 'org.jetbrains.intellij.platform.migration' version '2.2.1'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
+}
+
+dependencies {
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation libs.guava
+
+    intellijPlatform {
+        // Declare the IntelliJ Platform dependency:
+        create("IC", "2024.3")
+        // Specify bundled plugins (e.g. the Java plugin)
+        bundledPlugins("com.intellij.java")
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+application {
+    mainClass = 'org.example.App'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

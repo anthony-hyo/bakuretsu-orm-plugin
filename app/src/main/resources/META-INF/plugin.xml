@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.bakuretsu</id>
+    <name>Bakuretsu ORM</name>
+    <vendor>Stercore</vendor>
+    <description>A plugin to help development and usage of Bakuretsu.</description>
+
+    <idea-version since-build="233.*"/>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <psi.referenceContributor
+                language="JAVA"
+                implementation="com.bakuretsu.BakuretsuReferenceContributor"/>
+
+        <completion.contributor
+                language="JAVA"
+                implementationClass="com.bakuretsu.BakuretsuRelationCompletionContributor"/>
+
+        <localInspection
+                language="JAVA"
+                displayName="Bakuretsu ORM"
+                groupName="Bakuretsu"
+                enabledByDefault="true"
+                level="ERROR"
+                implementationClass="com.bakuretsu.BakuretsuRelationInspection"
+                shortName="BakuretsuRelationInspection"/>
+
+        <localInspection language="JAVA"
+                         shortName="RelationAnnotationInspection"
+                         displayName="Relation annotation validation"
+                         groupName="Bakuretsu"
+                         enabledByDefault="true"
+                         implementationClass="com.bakuretsu.RelationAnnotationInspection"/>
+    </extensions>
+</idea-plugin>
