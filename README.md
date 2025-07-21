@@ -1,4 +1,4 @@
-# Bakuretsu ORM IntelliJ Plugin
+# IntelliJ Bakuretsu ORM Plugin
 
 This repository contains core components for an IntelliJ plugin designed to enhance Bakuretsu ORM support inside the IDE, providing intelligent code completion, navigation, and validation for ORM relation chains.
 
